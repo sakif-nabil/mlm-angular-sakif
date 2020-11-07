@@ -1,0 +1,33 @@
+<div class="col-md-9 fixedContainer">
+  <div >
+    <div class="panel panel-default" style="border-style: solid; border-color: crimson">
+      <div class="panel-heading" style="border-style: solid; border-color: crimson"><b style="color: red">Comment se connecter?</b>
+      </div>
+      <ul>
+        <li>
+          Comme Admin:<br>-username: <b>admin</b>,<br> -password: <b>1234</b> <br><br>
+        </li>
+        <li>
+         Comme utilisateur:<br>-username: <b>user1</b>,<br> password: <b>1234</b>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+    <div class="form-group">
+      <label class="control-label">Login:</label>
+      <input type="text" name="username" ngModel class="form-control">
+    </div>
+    <div class="form-group">
+      <label class="control-label">Password:</label>
+      <input type="password" name="password" ngModel class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+  <br>
+  <br>
+  <p class="color">MLM of ELalami</p>
+</div>
+

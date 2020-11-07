@@ -1,0 +1,33 @@
+.fixedContainer {
+  background-color:#B0C4DE;
+
+  padding: 2em;
+  left: 70%;
+  top: 40%;
+  transform: translate(-10%, 50%);
+}
+.fixedContainertow {
+  background-color:silver;
+
+  padding: 1em;
+  left: 70%;
+  top: 10%;
+  transform: translate(-10%, 10%);
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+

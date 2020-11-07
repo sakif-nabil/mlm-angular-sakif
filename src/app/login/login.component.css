@@ -1,0 +1,14 @@
+.fixedContainer {
+  background-color:#DCDCDC;
+
+  padding: 4em;
+  left: 40%;
+  top: 10%;
+  transform: translate(-40%, 10%);
+}
+.color{
+  color: blue;
+  font-size: 10px;
+
+}
+

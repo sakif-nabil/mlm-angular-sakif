@@ -1,0 +1,69 @@
+<div class="col-md-9 container fixedContainerr">
+  <div class="col-lg-9 " style="-ms-background-position-x: center">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="color:mediumseagreen; font-size: 20px;background-color:azure">Ajouter nouveau produit</div>
+      <div class="panel-body" *ngIf="mode==1">
+        <form #f="ngForm" (ngSubmit)="onSaveProduct(f.value)">
+            <div class="form-group">
+              <label class="control-label">Nom du produit:</label>
+              <input type="text" name="name" ngModel  class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Description:</label>
+              <textarea name="description" ngModel  class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Prix:</label>
+              <input type="text" name="currentPrice" ngModel  class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Promotion:</label>
+              <input type="checkbox" name="promotion" ngModel >
+            </div>
+            <div class="form-group">
+              <label class="control-label">Sélection:</label>
+              <input type="checkbox" name="selected" ngModel >
+            </div>
+            <div class="form-group">
+              <label class="control-label">Available:</label>
+              <input type="checkbox" name="available" ngModel >
+            </div>
+
+          <button class="btn btn-success" type="submit">Enregistrer</button>
+
+        </form>
+      </div>
+      <div class="panel-body" *ngIf="mode==2">
+        <div class="alert alert-primary hello" role="alert">
+          <p style="color: mediumseagreen;  font-size: 20px; border-color: darkorchid">Le produit a été bien ajouté</p>
+        </div>
+        <button class="btn btn-success" (click)="onNewProduct()">Nouveau produit</button>
+        <p></p>
+        <div class="form-group">
+          <label style="font-size: large">Nom</label>
+          <label>:          {{newProduct.name}}</label>
+        </div>
+        <div class="form-group">
+          <label style="font-size: large">Description</label>
+          <label>:     {{newProduct.description}}</label>
+        </div>
+        <div class="form-group">
+          <label style="font-size: large">Prix du produit </label>
+          <label>:      {{newProduct.currentPrice}}</label>
+        </div>
+        <div class="form-group">
+          <label style="font-size: large">Promotion </label>
+          <label>:      {{newProduct.promotion}}</label>
+        </div>
+        <div class="form-group">
+          <label style="font-size: large">Sélection</label>
+          <label>:      {{newProduct.selected}}</label>
+        </div>
+        <div class="form-group">
+          <label style="font-size: large">Disponible</label>
+          <label>:       {{newProduct.available}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

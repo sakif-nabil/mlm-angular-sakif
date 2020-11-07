@@ -1,0 +1,9 @@
+.fixedContainerr {
+  background-color:darkgrey;
+
+
+  padding: 4em;
+  left: 20%;
+  top: 0%;
+  transform: translate(-10%, 3%);
+}

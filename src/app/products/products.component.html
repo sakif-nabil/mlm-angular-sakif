@@ -1,0 +1,52 @@
+<div class="fixedContainerBack  "   >
+  <div *ngIf="products" style="border-color: darkorchid">
+    <div *ngFor="let p of products._embedded.products " style="border-color: darkorchid" >
+      <div class="col-md-4 " style="border-color: darkorchid">
+        <div class="panel panel-default heigted" style=" border-style:wave;border-color:gainsboro; background-color:white">
+          <div class="panel-heading embed-responsive-item" style="color: black; font-size: 30px; background-color:gray(8); border-color: darkorchid"><p class="btnnn " (click)="onProductDetails(p)" style="cursor: pointer;"><strong>{{p.name}}</strong></p>
+            <div class="pull-right">
+              <td><button class="btn btn-danger" *ngIf="this.authService.isAdmin()" (click)="onDeleteProduct(p)">
+                <span class="glyphicon glyphicon-remove"></span>
+              </button></td>
+              <td><a class="btn btn-danger" *ngIf="!this.authService.isAdmin()&& p.promotion" >Promo</a></td>
+            </div>
+          </div>
+          <div class="panel-body  " style="height: 170px;">
+            <div class="col-md-9">
+            <img class="img-thumbnail img-rounded btn" style="transform: scaleX(-1);" (click)="onProductDetails(p)"
+                 [src]="this.catService.host+'/photoProduct/'+p.id+'?ts='+getTS()"/>
+
+
+            <div *ngIf="this.authService.isAdmin()">
+              <button (click)="onEditPhoto(p)">
+                <span class="glyphicon glyphicon-edit" style="color: blue">Changer photo</span>
+              </button>
+              <p *ngIf="editPhoto && currentProduct==p">
+                <input type="file" (change)="onSelectedFile($event)">
+                <button class="btn btn-success" (click)="uploadPhoto()">Upload</button>
+                {{progress}}
+              </p>
+            </div>
+            </div>
+          </div>
+          <div class="panel-footer bottom">
+            <div class="btnnnn" >
+              <label style="color: midnightblue; font-size: 22px"><p class="btnnnn clickable">{{p.currentPrice|number:'0.00'}} $ <p></p></label>
+            </div>
+            <div>
+              <form #f="ngForm" (ngSubmit)="onAddProductToCaddy(p)">
+                <label class="control-label">Quantité :</label>
+                <input type="number" name="quantity" [(ngModel)]="p.quantity" ngModel style="width: 40px">
+                <button class="btn-primary">
+                  Ajouter au panier <img src="assets/images/caddy.png" class="img-thumbnail img-circle img-responsive" width="10%">
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

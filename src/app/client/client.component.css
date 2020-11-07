@@ -1,0 +1,16 @@
+.fixedContainer {
+  background-color:silver;
+
+  padding: 4em;
+  left: 70%;
+  top: 10%;
+  transform: translate(-110%, 20%);
+}
+.fixedContainerthree {
+  background-color:silver;
+
+  padding: 4em;
+  left: 70%;
+  top: 50%;
+  transform: translate(-1%, 15%);
+}

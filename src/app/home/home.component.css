@@ -1,0 +1,32 @@
+
+
+.fixedContainer {
+  background-color:greenyellow;
+
+  padding: 1em;
+  left: 50%;
+  top: 50%;
+  transform: translate(35%, 100%);
+}
+.fixedContainerr {
+  background-color:darkgrey;
+
+  padding: 2em;
+  left: 50%;
+  top: 0%;
+  transform: translate(-5%, 1%);
+}
+span {
+  content: "\2193";
+}
+.clickable{
+  cursor: pointer;
+}
+.fixedContainerrr {
+  background-color:greenyellow;
+
+  padding: 1em;
+  left: 50%;
+  top: 50%;
+  transform: translate(1%, 40%);
+}

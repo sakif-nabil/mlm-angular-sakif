@@ -1,0 +1,124 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<nav class="navbar navbar-light navbar-fixed-top" style="background-color:#DCDCDC; border-bottom-color: #A9A9A9">
+  <div class="container-fluid" >
+    <div class="pull-right" *ngIf="this.authService.isAuthenticated()">
+      <ul class="nav pull-right">
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome,{{this.authService.authenticatedUser.username}} <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a class="icon-cog" routerLink="/caddy">Votre panier</a></li>
+
+            <li><a href="/help/support"><i class="icon-envelope"></i> Contact Support</a></li>
+            <li class="divider"></li>
+            <li><a  (click)="onLogout()"><p class="icon-cog clickable"> Se déconnecter</p></a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class=""><img class="clickable w3-hover-sepia"(click)="onSelectedProducts()" style="height: 60px" src="assets/images/logo.PNG"></li>
+      <li style="font-size: 20px; color: white"><a class="clickable change1" (click)="onSelectedProducts()" >Nos produits</a></li>
+
+
+      <li style="font-size: 20px; color: white"><a class="clickable change1" (click)="onProductsPromo()">Promotion</a></li>
+
+      <li ><a *ngIf="this.authService.isAuthenticated()" routerLink="/hello" style="font-size: 150%" class="change1">Arbre de parrinage</a></li>
+      <li style="font-size: 20px; color: white"><a class="clickable change1" *ngIf="this.authService.isAdmin()" routerLink="/new" >Ajouter Produit</a></li>
+      <li></li>
+    </ul>
+    <lu *ngIf="this.authService.isAuthenticated()" class=" nav navbar-nav" >
+
+      <!-- <img src="assets/images/connected.png"  class="img-thumbnail img-circle img-responsive" width = "1%" > -->
+    </lu>
+    <ul *ngIf="!this.authService.isAuthenticated()" class=" nav navbar-nav pull-right">
+      <li>
+        <a (click)="onLogin()" class="btn">
+          <span class="glyphicon glyphicon-log-in" (click)="onLogin()"></span>
+          Login
+        </a>
+      </li>
+    </ul>
+    <ul class=" nav navbar-nav pull-right">
+      <li>
+        <a routerLink="/caddy">
+          <p class="">Votre panier <img src="assets/images/caddyyy.PNG">
+            <button style="color: white; background-color: #1E90FF">{{caddyService.getSize()}}</button></p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="row " style="right: 4px; bottom: 12px">
+  <div class="col-md-3 fixedContainer">
+    <h3>Categories</h3>
+    <ul class="list-group animate__animated animate__fadeInLeft clickable" *ngIf="categories">
+      <strong><a [ngClass]="currentCategorie==c?'active':''" (click)="getProductsByCat(c)" style="backface-visibility: hidden" class="list-group-item hvr-shrink change1"
+                 *ngFor="let c of categories._embedded.categories">{{c.name}}</a></strong>
+
+    </ul>
+  </div>
+  <div class="col-md-9" >
+    <router-outlet>
+
+    </router-outlet>
+  </div>
+</div>
+<div class="container">
+  <section style="height:80px;"></section>
+  <div class="row" style="text-align:center;">
+  </div>
+  <!----------- Footer ------------>
+  <footer class="footer-bs">
+    <div class="row">
+      <div class="col-md-3 footer-brand animated fadeInLeft">
+        <h2>MyMLM</h2>
+        <p>Mymlm est un site web de marketing de reseau pour commercialiser des produits.</p>
+        <p>© 2020, All rights reserved</p>
+      </div>
+      <div class="col-md-4 footer-nav animated fadeInUp">
+        <h4>Menu —</h4>
+        <div class="col-md-6">
+          <ul class="pages">
+            <li><a href="#">Produits</a></li>
+            <li><a href="#">Nature</a></li>
+            <li><a href="#">Explores</a></li>
+            <li><a href="#">Science</a></li>
+            <li><a href="#">Advice</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul class="list">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contacts</a></li>
+            <li><a href="#">Terms & Condition</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-2 footer-social animated fadeInDown">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">RSS</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 footer-ns animated fadeInRight">
+        <h4>Newsletter</h4>
+        <p></p>
+        <p>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                      </span>
+        </div><!-- /input-group -->
+
+      </div>
+    </div>
+  </footer>
+  <section style="text-align:center; margin:10px auto;"><p>Designed by <a href="https://www.linkedin.com/in/nabil-sakif-412301183/">SAKIF NABIL</a></p></section>
+
+</div>

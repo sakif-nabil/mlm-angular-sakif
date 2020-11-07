@@ -1,0 +1,54 @@
+<div class="col-md-6 fixedContainer" *ngIf="currentOrder">
+  <div class="panel-heading">Saisir vos donnes de la carte:</div>
+  <form #f="ngForm" (ngSubmit)="onPayOrder(f.value)">
+    <div class="form-group">
+      <label class="control-label">Type:</label>
+      <select name="cardType" ngModel class="form-control">
+        <option value="Visa">Visa</option>
+        <option value="Cmi">Cmi</option>
+        <option value="Cmi">Cmi</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="control-label">Card Number:</label>
+      <input type="text" name="cardNumber" ngModel class="form-control">
+    </div>
+    <div class="form-group">
+      <label class="control-label">Code Verif:</label>
+      <input type="text" name="codeVerif" ngModel class="form-control">
+    </div>
+    <div class="form-group">
+      <label class="control-label">Amount:</label>
+      <input type="text" name="amount" ngModel class="form-control" [(ngModel)]="currentOrder.totalAmount">
+    </div>
+    <button type="submit" class="btn btn-primary">Pay</button>
+  </form>
+</div>
+<div class="panel col-md-6 fixedContainerbotom " *ngIf="mode==1">
+  <div class="alert alert-primary hello" role="alert">
+    <p style="color: black;">Bravo! your payment is done successfully</p>
+  </div>
+  <div class="panel-heading">Votre facture</div>
+  <div class="panel-body">
+    <div>
+      <div class="form-group">
+        <label>Numero de la transaction:</label>
+        <label>{{payment.id}}</label>
+      </div>
+      <div class="form-group">
+        <label>Type de la carte:</label>
+        <label>{{payment.cardType}}</label>
+      </div>
+      <div class="form-group">
+        <label>la date de payment:</label>
+        <label>{{payment.datePayment}}</label>
+      </div>
+      <div class="form-group">
+        <label>Numero de la carte:</label>
+        <label>{{payment.cardNumber}}</label>
+      </div>
+
+    </div>
+  </div>
+</div>
+
